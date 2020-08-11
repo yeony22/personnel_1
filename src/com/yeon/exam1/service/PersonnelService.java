@@ -23,4 +23,21 @@ public class PersonnelService {
 		
 		return list;
 	}
+	
+	public ArrayList<PersonnelDTO> selectID(String keyword) {
+		
+		Connection con = getConnection();
+		ArrayList<PersonnelDTO> list = pdao.selectID(con, keyword);
+		
+		close(con);
+		
+		return list;
+	}
+	
+	public ArrayList<PersonnelDTO> selectALL() {
+		Connection con = getConnection();
+		ArrayList<PersonnelDTO> list = pdao.selectALL(con);
+		
+		return list;
+	}
 }
