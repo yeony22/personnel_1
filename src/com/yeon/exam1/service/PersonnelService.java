@@ -24,20 +24,15 @@ public class PersonnelService {
 		return list;
 	}
 	
-	public ArrayList<PersonnelDTO> selectID(String keyword) {
-		
+	public int insertPersonnel(PersonnelDTO p) {
 		Connection con = getConnection();
-		ArrayList<PersonnelDTO> list = pdao.selectID(con, keyword);
+		int result = pdao.insertPersonnel(con, p);
 		
-		close(con);
-		
-		return list;
-	}
-	
-	public ArrayList<PersonnelDTO> selectALL() {
-		Connection con = getConnection();
-		ArrayList<PersonnelDTO> list = pdao.selectALL(con);
-		
-		return list;
+		if(result > 0)
+			commit(con);
+		else
+			rollback(con);
+
+		return result;
 	}
 }

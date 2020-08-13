@@ -50,6 +50,7 @@ public class PersonnelDAO {
 			if(filter.equals("id")) { // id로 검색했다면
 				pstmt.setString(1, keyword);
 				pstmt.setString(2, "");
+		
 			} else { 					// 부서명으로 검색했다면
 				pstmt.setString(1, "0");
 				pstmt.setString(2, deptName);
@@ -70,11 +71,11 @@ public class PersonnelDAO {
 				list.add(p);
 				System.out.println(p);
 			}
-		} catch (SQLException e) {
-
-			e.printStackTrace();
-		} finally {
 			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		} finally {
 			close(rset);
 			close(pstmt);
 		}
@@ -82,87 +83,31 @@ public class PersonnelDAO {
 		return list;
 	}
 	
-	public ArrayList<PersonnelDTO> selectID(Connection con, String keyword) {
-		ArrayList<PersonnelDTO> list = new ArrayList<>();
-		PreparedStatement pstmt = null; // SQL 문을 데이터베이스에 보내기 위한 객체
-		ResultSet rset = null; // SQL 질의에 의해 생성된 테이블을 저장하는 객체
+	public int insertPersonnel(Connection con, PersonnelDTO p) {
+		int result = 0;
+		PreparedStatement pstmt = null;
 		
-		String sql = prop.getProperty("selectID");
+		String sql = prop.getProperty("insertPersonnel");
 		
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, keyword);
-						
-			rset = pstmt.executeQuery();
 			
-			while(rset.next()) {
-				PersonnelDTO p = new PersonnelDTO();
-				
-				p.setId(rset.getString("ID"));
-				p.setName(rset.getString("NAME"));
-				p.setDept(rset.getString("DEPT"));
-				p.setPosition(rset.getString("POSITION"));
-				p.setDuty(rset.getString("DUTY"));
-				p.setPhone(rset.getString("PHONE"));
-				
-				list.add(p);
-				System.out.println(p);
-			}
+			pstmt.setString(1, p.getId());
+			pstmt.setString(2, p.getName());
+			pstmt.setString(3, p.getDept());
+			pstmt.setString(4, p.getPosition());
+			pstmt.setString(5, p.getDuty());
+			pstmt.setString(6, p.getPhone());
+			
+			result = pstmt.executeUpdate();
+			
 		} catch (SQLException e) {
-
 			e.printStackTrace();
-		} finally {
 			
-			close(rset);
+		} finally {
 			close(pstmt);
+		
 		}
-		
-		return list;
-	}
-	
-	public ArrayList<PersonnelDTO> selectALL(Connection con) {
-		ArrayList<PersonnelDTO> list = new ArrayList<>();
-		Statement stmt = null; // SQL 문을 데이터베이스에 보내기 위한 객체
-		ResultSet rs = null; // SQL 질의에 의해 생성된 테이블을 저장하는 객체
-		
-		String sql = prop.getProperty("selectALL");
-		
-		try {
-			stmt = con.createStatement();
-			
-			rs = stmt.executeQuery(sql);
-			
-			List<Map<String, Object>> articles = new ArrayList<>();
-			
-			while(rs.next()) {
-				PersonnelDTO p = new PersonnelDTO();
-				
-				p.setId(rs.getString("ID"));
-				p.setName(rs.getString("NAME"));
-				p.setDept(rs.getString("DEPT"));
-				p.setPosition(rs.getString("POSITION"));
-				p.setDuty(rs.getString("DUTY"));
-				p.setPhone(rs.getString("PHONE"));
-				
-				Map<String, Object> article = new HashMap<>();
-				article.put("ID", rs.getString("ID"));
-				article.put("NAME", rs.getString("NAME"));
-				article.put("DEPT", rs.getString("DEPT"));
-				
-				System.out.println(article);
-				articles.add(article);
-				list.add(p);
-				System.out.println(p);
-			}
-		} catch (SQLException e) {
-
-			e.printStackTrace();
-		} finally {
-			
-			close(rs);
-			close(stmt);
-		}
-		
-		return list;
+		return result;
 	}
 }
