@@ -24,15 +24,12 @@ public class PersonnelService {
 		return list;
 	}
 	
-	public int insertPersonnel(PersonnelDTO p) {
-		Connection con = getConnection();
-		int result = pdao.insertPersonnel(con, p);
-		
-		if(result > 0)
-			commit(con);
-		else
-			rollback(con);
-
-		return result;
-	}
+	
+	  public int insertPersonnel(PersonnelDTO p) { Connection con =
+	  getConnection(); int result = pdao.insertPersonnel(con, p);
+	  
+	  if(result > 0) commit(con); else rollback(con);
+	  
+	  return result; }
+	 
 }

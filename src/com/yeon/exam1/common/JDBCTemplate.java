@@ -29,12 +29,12 @@ public class JDBCTemplate {
 			System.out.println("VendorError: " + e.getErrorCode());
 		}
 
-		try {
-			conn.close();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+//		try {
+//			conn.close();
+//
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
 
 		return conn;
 	}
