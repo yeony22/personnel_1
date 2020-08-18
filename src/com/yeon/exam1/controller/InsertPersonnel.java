@@ -40,7 +40,7 @@ public class InsertPersonnel extends HttpServlet {
 		
 		int result = pService.insertPersonnel(p);
 		
-		if(result > 0) {
+		if (result > 0) {
 			System.out.println("데이터 추가 성공");
 			response.sendRedirect("index.jsp");
 		} else 
