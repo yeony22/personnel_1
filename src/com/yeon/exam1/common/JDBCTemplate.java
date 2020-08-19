@@ -11,7 +11,7 @@ public class JDBCTemplate {
 
 		Connection conn = null; // DB 연동할 객체 생성
 
-		try { 
+		try {
 			Class.forName("com.mysql.cj.jdbc.Driver"); // 해당 클래스가 메모리에 로드 및 실행
 
 		} catch (ClassNotFoundException e) {
@@ -30,6 +30,13 @@ public class JDBCTemplate {
 		}
 
 		
+//		try {
+//			conn.close();
+//
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+
 		return conn;
 	}
 

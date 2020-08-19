@@ -7,11 +7,11 @@ public class PersonnelDTO {
 	private String position;
 	private String duty;
 	private String phone;
-	
+
 	public PersonnelDTO() {
 		super();
 	}
-	
+
 	public PersonnelDTO(String id, String name, String dept, String position, String duty, String phone) {
 		super();
 		this.id = id;
@@ -21,17 +21,18 @@ public class PersonnelDTO {
 		this.duty = duty;
 		this.phone = phone;
 	}
-	
+
 	public PersonnelDTO(String id, String name) {
 		this.id = id;
 		this.name = name;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Personnel [id=" + id + ", name=" + name + ", dept=" + dept + ", position=" + position + ", duty=" + duty + ", phone=" + phone + "]";
+		return "Personnel [id=" + id + ", name=" + name + ", dept=" + dept + ", position=" + position + ", duty=" + duty
+				+ ", phone=" + phone + "]";
 	}
-	
+
 	public String getId() {
 		return id;
 	}
@@ -78,5 +79,5 @@ public class PersonnelDTO {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
-	}	
+	}
 }

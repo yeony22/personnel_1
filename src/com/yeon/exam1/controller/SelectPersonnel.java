@@ -19,42 +19,45 @@ import com.yeon.exam1.service.PersonnelService;
 @WebServlet("/selectEmployee.do")
 public class SelectPersonnel extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
 	public SelectPersonnel() {
-        super();
-    }
-	
-	
+		super();
+	}
+
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String filter = request.getParameter("filter");
-		
+
 		String keyword = null;
 		String deptName = null;
-		
-		if(filter.equals("id")) {
+
+		if (filter.equals("id")) {
 			keyword = request.getParameter("keyword");
 		} else {
 			deptName = request.getParameter("deptName");
 		}
-		
+
 		PersonnelService pService = new PersonnelService();
 		ArrayList<PersonnelDTO> list = pService.selectPersonnel(filter, keyword, deptName);
-		
+
 		request.setAttribute("list", list);
-		
+
 		request.getRequestDispatcher("views/selectPageEnd.jsp").forward(request, response);
 	}
-	
+
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doGet(request, response);
 	}
 
