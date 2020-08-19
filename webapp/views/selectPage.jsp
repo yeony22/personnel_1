@@ -10,9 +10,9 @@
 	<h1>인사관리조회화면</h1>
 	<form action="${pageContext.request.contextPath}/selectEmployee.do"
 		method="get">
-		<legend>
+		<h1>
 			인사관리 조회
-			</lengend>
+			</h1>
 
 			<input type="radio" name="filter" value="id"> <label>사원번호로
 				조회</label> <input type="text" name="keyword"> <input type="radio"

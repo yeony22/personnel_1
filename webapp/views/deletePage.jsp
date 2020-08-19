@@ -10,7 +10,7 @@
 	<h1>인사관리 사원정보 변경화면</h1>
 	<form action="${pageContext.request.contextPath}/deleteEmployee.do"
 		method="post">
-		<legend>인사관리 퇴사처리</legend>
+		<h2>인사관리 퇴사처리</h2>
 		<label>성명 : </label> <input type="text" name="name"><br>
 		<label>사원번호 : </label> <input type="text" name="id"><br>
 		<button type="submit">삭제</button>

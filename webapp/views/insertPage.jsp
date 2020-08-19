@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,18 +10,8 @@
 </head>
 <body>
 	<h1>인사관리 사원정보 변경화면</h1>
-	<form action="${pageContext.request.contextPath}/insertEmployee.do" method="post">
-		<legend>인사관리 사원정보 등록</legend>
-		<label>성명 : </label>
-		<input type="text" name="name"><br>
-		<label>사원번호 : </label>
-		<input type="text" name="id"><br>
-		<label>소속부서 : </label>
-		<select name="dept">
-	<form action="${pageContext.request.contextPath}/insertEmployee.do"
-		method="post">
-		<legend>인사관리 사원정보 변경</legend>
-		<label>성명 : </label> <input type="text" name="name"><br>
+	<form action = "${pageContext.request.contextPath}/insertEmployee.do" method="post">
+		<h2>성명 : </h2> <input type="text" name="name"><br>
 		<label>사원번호 : </label> <input type="text" name="id"><br>
 		<label>소속부서 : </label> 
 		<select name="dept">

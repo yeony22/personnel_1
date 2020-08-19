@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +10,7 @@
 </head>
 <body>
 <form action="${pageContext.request.contextPath}/updateEmployee.do" method="post">
-		<legend>인사관리 사원정보 변경</legend>
+		<h1>인사관리 사원정보 변경</h1>
 		<label>성명 : </label>
 		<input type="text" name="name"><br>
 		<label>사원번호 : </label>

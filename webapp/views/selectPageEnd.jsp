@@ -1,8 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
@@ -35,12 +31,5 @@
 		</c:forEach>
 	</table>
 	
-	<script>
-		function fn_goSelectPage() {
-			location.href = '${pageContext.request.contextPath}/views/selectPage.jsp';
-    	}
-	</script>
-	
-	</button>
 </body>
 </html>
