@@ -9,7 +9,7 @@
 <body>
 	<h1>인사관리 사원정보 변경화면</h1>
 	<form action="${pageContext.request.contextPath}/insertEmployee.do" method="post">
-		<legend>인사관리 사원정보 변경</legend>
+		<legend>인사관리 사원정보 등록</legend>
 		<label>성명 : </label>
 		<input type="text" name="name"><br>
 		<label>사원번호 : </label>

@@ -87,7 +87,7 @@ public class PersonnelDAO {
 		int result = 0;
 		PreparedStatement pstmt = null;
 		
-		String sql = prop.getProperty("insertPersonnel");
+		String sql = prop.getProperty("insertList");
 		
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -110,4 +110,41 @@ public class PersonnelDAO {
 		}
 		return result;
 	}
+
+	public int updatePersonnel(Connection con, PersonnelDTO p) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("updateList");
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(6, p.getId());
+			pstmt.setString(1, p.getName());
+			pstmt.setString(2, p.getDept());
+			pstmt.setString(3, p.getPosition());
+			pstmt.setString(4, p.getDuty());
+			pstmt.setString(5, p.getPhone());
+			
+			result = pstmt.executeUpdate();
+		
+		} catch (SQLException e) {
+			
+			//out.println(e.getMessage());
+
+			e.printStackTrace();
+		} finally {
+			
+			close(pstmt);
+					
+		}
+		
+		return result;
+		
+	}
 }
+
+
+
+

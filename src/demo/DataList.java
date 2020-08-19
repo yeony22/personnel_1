@@ -55,9 +55,9 @@ public class DataList extends HttpServlet {
 		} 
 
 		try { // drive 클래스를 이용해 커넥션 객체에 localhost:3306/DB 와 연동 및 예외처리
-			String url = "jdbc:mysql://localhost:3306/practice1?characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false";
+			String url = "jdbc:mysql://localhost:3306/student_data?characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false";
 			
-			conn = DriverManager.getConnection(url, "root", "1234"); // DB 로그인 정보로 연동
+			conn = DriverManager.getConnection(url, "root", "Weak"); // DB 로그인 정보로 연동
 			
 			stmt = conn.createStatement();
 			
@@ -101,7 +101,7 @@ public class DataList extends HttpServlet {
 			System.out.println("VendorError: " + e.getErrorCode());
 		} finally {
 			response.getWriter().append(conn.toString() + "<br/>");
-			response.getWriter().append("localhost:3306/practice1 (DateBase 연동 성공)");
+			response.getWriter().append("localhost:3306/personnel (DateBase 연동 성공)");
 	
 			try {
 				conn.close();

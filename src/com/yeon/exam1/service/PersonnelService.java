@@ -35,4 +35,17 @@ public class PersonnelService {
 
 		return result;
 	}
+	public int updatePersonnel(PersonnelDTO p) {
+		
+		Connection con = getConnection();
+		int result = pdao.updatePersonnel(con, p);
+		
+		if(result > 0)
+			commit(con);
+		else 
+			rollback(con);
+		
+		return result;
+	}
+
 }

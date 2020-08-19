@@ -19,8 +19,8 @@ public class JDBCTemplate {
 		}
 
 		try { // drive 클래스를 이용해 커넥션 객체에 localhost:3306/practice1 과 연동 및 예외처리
-			String url = "jdbc:mysql://localhost:3306/practice1?characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false";
-			conn = DriverManager.getConnection(url, "root", "1234"); // DB 로그인 정보로 연동
+			String url = "jdbc:mysql://localhost:3306/student_data?characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false";
+			conn = DriverManager.getConnection(url, "root", "Weak"); // DB 로그인 정보로 연동
 			conn.setAutoCommit(false); // commit 수동 설정
 
 		} catch (SQLException e) {
@@ -29,13 +29,7 @@ public class JDBCTemplate {
 			System.out.println("VendorError: " + e.getErrorCode());
 		}
 
-		try {
-			conn.close();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
+		
 		return conn;
 	}
 
